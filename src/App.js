@@ -19,7 +19,7 @@ function App() {
       try {
         if (searchQuery) {
           const response = await axios.get(
-            `https://api.consumet.org/anime/gogoanime/${searchQuery}?page=1`
+            `https://animxer-api-cvxg.vercel.app/anime/gogoanime/${searchQuery}?page=1`
           );
           setSearchResults(response.data.results);
           console.log(response.data);
@@ -40,7 +40,7 @@ function App() {
 
   useEffect(() => {
     const fetchTopAiringAnime = async (page) => {
-      const url = "https://api.consumet.org/anime/gogoanime/top-airing";
+      const url = "https://animxer-api-cvxg.vercel.app/anime/gogoanime/top-airing";
       try {
         const { data } = await axios.get(url, { params: { page } });
         if (page === 1) {
@@ -78,7 +78,7 @@ function App() {
   const fetchEpisodes = async (animeId) => {
     try {
       const response = await axios.get(
-        `https://api.consumet.org/anime/gogoanime/info/${animeId}`
+        `https://animxer-api-cvxg.vercel.app/anime/gogoanime/info/${animeId}`
       );
       setSelectedAnime(response.data);
       console.log(response.data);
@@ -91,7 +91,7 @@ function App() {
     if (selectedAnime) {
       try {
         const response = await axios.get(
-          `https://api.consumet.org/anime/gogoanime/servers/${episodeId}`
+          `https://animxer-api-cvxg.vercel.app/anime/gogoanime/servers/${episodeId}`
         );
         setSelectedServer(response.data);
         console.log(response.data);
